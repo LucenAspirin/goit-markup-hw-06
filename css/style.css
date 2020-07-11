@@ -218,9 +218,7 @@ img {
   line-height: 1.36;
   text-transform: uppercase;
 }
-/* модалка */
-.backdrop {
-}
+
 /* заголовки */
 .section-title {
   font-weight: 700;
@@ -713,44 +711,225 @@ img {
   background: var(--accent-color);
 }
 
-/* 
-
-
-
-
-.button .button-primary .but-link:hover,
-.button .button-primary .but-link:focus {
-  color: var(--accent-color);
-}
-.button-primary {
-  display: inline-block;
-  border-radius: 4px;
-  padding: 10px 32px;
-
-  text-align: center;
-  background-color: #f5f4fa;
-}
-
-.button .button-primary + .button-primary {
-  margin-left: 8px;
-} */
-
 .button-secondary {
-  background: var(--primary-button-bg-color);
-  color: #ffffff;
-  font-weight: bold;
+  text-decoration: none;
+  font-weight: 700;
   font-size: 16px;
-  line-height: 1.87;
-  align-items: center;
+  line-height: 1.88;
   text-align: center;
   letter-spacing: 0.06em;
+  color: var(--white-color);
+  background-color: var(--accent-color);
 
   display: inline-block;
+  border: 1px solid transparent;
   border-radius: 4px;
   padding: 10px 32px;
+  min-width: 200px;
 
-  text-align: center;
+  transition: color var(--duration) var(--timing),
+    border-color var(--duration) var(--timing),
+    background-color var(--duration) var(--timing);
 }
+.button-secondary:hover,
+.button-secondary:focus {
+  color: var(--accent-color);
+  background-color: var(--white-color);
+  border-color: var(--accent-color);
+}
+/* модалка */
+.backdrop {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 4;
+
+  opacity: 1;
+  transition: opacity var(--timing) var(--duration);
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-height: 581px;
+  min-width: 528px;
+  padding-top: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+
+  background-color: var(--white-color);
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--timing) var(--duration);
+}
+.backdrop .is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.backdrop .is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+.modal-name {
+  display: block;
+  margin-bottom: 30px;
+
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 20px;
+  color: var(--titel-text-color);
+}
+.modal-input {
+  position: relative;
+
+  display: block;
+  margin-bottom: 30px;
+}
+.modal-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+
+  transition: fill var(--timing) var(--duration);
+}
+.input-field {
+  padding-left: 42px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  width: 100%;
+  resize: none;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  transition: border-color var(--timing) var(--duration);
+}
+.input-label {
+  position: absolute;
+  top: 50%;
+  left: 42px;
+  transform: translateY(-50%);
+
+  letter-spacing: 0.01em;
+
+  transition: transform var(--timing) var(--duration),
+    color var(--timing) var(--duration);
+}
+.modal-input:focus-within > .input-field {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.modal-input:focus-within > .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  transform: translate(-25px, -35px);
+  font-size: 12px;
+  line-height: 1.17px;
+  color: var(--accent-color);
+}
+
+.modal-input:focus-within > .modal-icon {
+  fill: var(--accent-color);
+}
+
+.textarea {
+  margin-bottom: 30px;
+  padding-left: 16px;
+
+  transition: border-color var(--timing) var(--duration);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.textarea::placeholder {
+  letter-spacing: 0.01em;
+}
+
+.modal-button {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 3px 1px rgba(0, 0, 0, 0.1);
+}
+
+.modal-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 100%;
+  left: 100%;
+  transform: translate(-130%, 130%);
+
+  background-color: var(--white-color);
+  fill: var(--logo-studio-text-color);
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+
+  transition: fill var(--duration) var(--timing);
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  background-color: var(--white-color);
+  fill: var(--accent-color);
+}
+
+.rules,
+.rules:visited {
+  color: var(--accent-color);
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.agree {
+  display: inline-block;
+  margin-right: 8px;
+  width: 15px;
+  height: 15px;
+
+  border: 2px solid #212121;
+  border-radius: 2px;
+}
+
+.checkbox:checked + .agree {
+  border-color: transparent;
+  background-color: var(--accent-color);
+  background-image: url(../img/gud.svg);
+  background-size: auto auto;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
 /* #212121 цвет заголовкав */
 /* #757575 цвет абзатцов */
 /* второая часть цвет лого #000000 */
