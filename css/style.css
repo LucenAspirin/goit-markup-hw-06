@@ -17,7 +17,9 @@ html {
   --logo-studio-text-color: #000000;
   --nav-link: #212121;
   --icons-color: #afb1b8;
+
   --white-color: #ffffff;
+  --footer-background-color: #2f303a;
   --duration: 250ms;
   --timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -474,6 +476,9 @@ img {
   margin-right: 0;
 }
 .footer-box {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
   height: 193px;
 }
 .footer-logo {
@@ -533,18 +538,37 @@ img {
 
   transition: color var(--duration) var(--timing);
 }
+/* пописка на рссылку */
+
 .push-go {
   padding-top: 57px;
   padding-left: 69px;
 }
 .push {
-  justify-content: flex-start;
+  display: block;
+  margin-bottom: 20px;
+
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #ffffff;
+}
+.email {
+  margin-right: 12px;
+  padding-left: 16px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  width: 358px;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  background-color: var(--footer-background-color);
+  color: var(--icons-color);
+  font-size: 16px;
+  line-height: 1.25;
 }
 .go:hover,
 .go:focus {
