@@ -475,31 +475,65 @@ img {
 .networks-list-footer:last-child {
   margin-right: 0;
 }
+.footer-cont {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
 .footer-box {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  height: 193px;
 }
 .footer-logo {
   display: flex;
   align-items: baseline;
 }
-.footer-logo .pad-logo {
-  padding-top: 60px;
-}
+
 .address-cont {
   width: 231px;
 
   padding-top: 20px;
 }
+.button-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: var(--white-color);
+
+  transition: fill var(--duration) var(--timing),
+    color var(--duration) var(--timing),
+    border-color var(--duration) var(--timing),
+    background-color var(--duration) var(--timing);
+}
+
+.button-footer:focus,
+.button-footer:hover {
+  fill: var(--accent-color);
+}
+.subscribe {
+  display: inline-block;
+  margin-right: 10px;
+
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1.88;
+  text-align: center;
+  letter-spacing: 0.06em;
+
+  transition: fill var(--duration) var(--timing);
+}
+
+.subscribe-svg:hover,
+.subscribe-svg:focus {
+  fill: var(--accent-color);
+}
+
 .networks-list-footer {
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.1);
 }
 .footer-social {
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
 }
 
 .networks-list-footer:hover,
@@ -541,8 +575,6 @@ img {
 /* пописка на рссылку */
 
 .push-go {
-  padding-top: 57px;
-  padding-left: 69px;
 }
 .push {
   display: block;
